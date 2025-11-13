@@ -26,10 +26,7 @@ const routes: ReadonlyArray<AppRoute> = [
   },
 ]
 
-/**
- * Orquestra as rotas principais do portal HelpDesk.
- * @returns {JSX.Element} Conjunto de rotas disponíveis na aplicação.
- */
+
 const App = (): JSX.Element => {
   return (
     <Routes>
