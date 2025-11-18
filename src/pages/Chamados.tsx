@@ -1,3 +1,4 @@
+import { type ReactElement } from 'react'
 import { useNavigate } from 'react-router-dom'
 import DashboardLayout from '../components/DashboardLayout'
 import { chamados } from '../data/chamados'
@@ -26,7 +27,7 @@ const statusIcons = {
   ),
 } as const
 
-const ChamadosPage = (): JSX.Element => {
+const ChamadosPage = (): ReactElement => {
   const navigate = useNavigate()
 
   return (

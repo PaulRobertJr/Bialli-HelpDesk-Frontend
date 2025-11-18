@@ -1,9 +1,9 @@
-import { ReactNode } from 'react'
+import { type ReactElement, ReactNode } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import brandIcon from '../assets/logo/helpdesk-mark.svg'
 
 type MenuItem = {
-  icon: JSX.Element
+  icon: ReactElement
   label: string
   path: string
 }
@@ -52,7 +52,7 @@ const menuItems: ReadonlyArray<MenuItem> = [
   },
 ]
 
-const DashboardLayout = ({ children }: DashboardLayoutProps): JSX.Element => {
+const DashboardLayout = ({ children }: DashboardLayoutProps): ReactElement => {
   const navigate = useNavigate()
   const location = useLocation()
 

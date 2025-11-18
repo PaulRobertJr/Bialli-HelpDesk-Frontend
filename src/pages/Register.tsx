@@ -1,4 +1,4 @@
-import { FormEvent } from 'react'
+import { type ReactElement, FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AuthLayout from '../components/AuthLayout'
 
@@ -41,7 +41,7 @@ const navigationTargets = {
 } as const
 
 
-const RegisterPage = (): JSX.Element => {
+const RegisterPage = (): ReactElement => {
   const navigate = useNavigate()
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {

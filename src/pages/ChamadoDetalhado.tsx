@@ -1,3 +1,4 @@
+import { type ReactElement } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import DashboardLayout from '../components/DashboardLayout'
 import { getChamadoById } from '../data/chamados'
@@ -26,7 +27,7 @@ const statusIcons = {
   ),
 } as const
 
-const ChamadoDetalhadoPage = (): JSX.Element => {
+const ChamadoDetalhadoPage = (): ReactElement => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
 
