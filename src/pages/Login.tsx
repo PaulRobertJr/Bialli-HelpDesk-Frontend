@@ -28,6 +28,7 @@ const formFields: ReadonlyArray<FormField> = [
 ]
 
 const navigationTargets = {
+  chamados: '/chamados',
   createAccount: '/register',
 } as const
 
@@ -37,6 +38,7 @@ const LoginPage = (): JSX.Element => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    navigate(navigationTargets.chamados)
   }
 
   return (
