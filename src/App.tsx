@@ -1,10 +1,12 @@
+import { type ReactElement } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import LoginPage from './pages/Login'
 import RegisterPage from './pages/Register'
 import ChamadosPage from './pages/Chamados'
+import ChamadoDetalhadoPage from './pages/ChamadoDetalhado'
 
 type AppRoute = {
-  element: JSX.Element
+  element: ReactElement
   path: string
 }
 
@@ -26,13 +28,17 @@ const routes: ReadonlyArray<AppRoute> = [
     path: '/chamados',
   },
   {
+    element: <ChamadoDetalhadoPage />,
+    path: '/chamados/:id',
+  },
+  {
     element: <Navigate replace to="/login" />,
     path: '*',
   },
 ]
 
 
-const App = (): JSX.Element => {
+const App = (): ReactElement => {
   return (
     <Routes>
       {routes.map((route) => (

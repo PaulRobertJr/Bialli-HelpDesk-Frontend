@@ -1,124 +1,6 @@
+import { useNavigate } from 'react-router-dom'
 import DashboardLayout from '../components/DashboardLayout'
-
-type Status = {
-  label: string
-  variant: 'open' | 'in-progress' | 'closed'
-}
-
-type Chamado = {
-  atualizadoEm: string
-  id: string
-  titulo: string
-  servico: string
-  valorTotal: string
-  cliente: {
-    nome: string
-    iniciais: string
-  }
-  tecnico: {
-    nome: string
-    iniciais: string
-  }
-  status: Status
-}
-
-const chamados: ReadonlyArray<Chamado> = [
-  {
-    atualizadoEm: '13/04/25 20:56',
-    cliente: {
-      iniciais: 'AC',
-      nome: 'André Costa',
-    },
-    id: '00003',
-    servico: 'Instalação de Rede',
-    status: {
-      label: 'Aberto',
-      variant: 'open',
-    },
-    tecnico: {
-      iniciais: 'CS',
-      nome: 'Carlos Silva',
-    },
-    titulo: 'Rede lenta',
-    valorTotal: 'R$ 180,00',
-  },
-  {
-    atualizadoEm: '12/04/25 15:20',
-    cliente: {
-      iniciais: 'AC',
-      nome: 'André Costa',
-    },
-    id: '00004',
-    servico: 'Recuperação de Dados',
-    status: {
-      label: 'Aberto',
-      variant: 'open',
-    },
-    tecnico: {
-      iniciais: 'CS',
-      nome: 'Carlos Silva',
-    },
-    titulo: 'Backup não está funcionando',
-    valorTotal: 'R$ 200,00',
-  },
-  {
-    atualizadoEm: '12/04/25 09:01',
-    cliente: {
-      iniciais: 'AS',
-      nome: 'Aline Souza',
-    },
-    id: '00001',
-    servico: 'Manutenção de Hardware',
-    status: {
-      label: 'Em atendimento',
-      variant: 'in-progress',
-    },
-    tecnico: {
-      iniciais: 'CS',
-      nome: 'Carlos Silva',
-    },
-    titulo: 'Computador não liga',
-    valorTotal: 'R$ 150,00',
-  },
-  {
-    atualizadoEm: '10/04/25 10:15',
-    cliente: {
-      iniciais: 'JM',
-      nome: 'Julia Maria',
-    },
-    id: '00002',
-    servico: 'Suporte de Software',
-    status: {
-      label: 'Encerrado',
-      variant: 'closed',
-    },
-    tecnico: {
-      iniciais: 'AO',
-      nome: 'Ana Oliveira',
-    },
-    titulo: 'Instalação de software de gestão',
-    valorTotal: 'R$ 200,00',
-  },
-  {
-    atualizadoEm: '11/04/25 15:16',
-    cliente: {
-      iniciais: 'SM',
-      nome: 'Suzane Moura',
-    },
-    id: '00005',
-    servico: 'Suporte de Software',
-    status: {
-      label: 'Encerrado',
-      variant: 'closed',
-    },
-    tecnico: {
-      iniciais: 'AO',
-      nome: 'Ana Oliveira',
-    },
-    titulo: 'Meu fone não conecta no computador',
-    valorTotal: 'R$ 80,00',
-  },
-]
+import { chamados } from '../data/chamados'
 
 const statusStyles = {
   closed: 'bg-green-100 text-green-800',
@@ -145,6 +27,8 @@ const statusIcons = {
 } as const
 
 const ChamadosPage = (): JSX.Element => {
+  const navigate = useNavigate()
+
   return (
     <DashboardLayout>
       <div className="space-y-6">
@@ -203,6 +87,7 @@ const ChamadosPage = (): JSX.Element => {
                   <td className="px-6 py-4">
                     <button
                       className="text-slate-400 transition hover:text-slate-600"
+                      onClick={() => navigate(`/chamados/${chamado.id}`)}
                       type="button"
                     >
                       <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
