@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { type ReactElement, ReactNode } from 'react'
 import backgroundPattern from '../assets/background/login-pattern.svg'
 import brandIcon from '../assets/logo/helpdesk-mark.svg'
 
@@ -16,7 +16,7 @@ type AuthLayoutProps = {
   title: string
 }
 
-const AuthLayout = ({ children, description, secondaryCard, title }: AuthLayoutProps): JSX.Element => {
+const AuthLayout = ({ children, description, secondaryCard, title }: AuthLayoutProps): ReactElement => {
   return (
     <div className="flex min-h-screen flex-col bg-slate-100 lg:flex-row">
       <div className="relative hidden min-h-screen w-full lg:block lg:w-1/2">
