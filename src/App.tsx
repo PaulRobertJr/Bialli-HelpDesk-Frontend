@@ -5,6 +5,7 @@ import RegisterPage from './pages/Register'
 import ChamadosPage from './pages/Chamados'
 import ChamadoDetalhadoPage from './pages/ChamadoDetalhado'
 import TecnicosPage from './pages/Tecnicos'
+import PerfilTecnicoPage from './pages/PerfilTecnico'
 
 type AppRoute = {
   element: ReactElement
@@ -35,6 +36,10 @@ const routes: ReadonlyArray<AppRoute> = [
   {
     element: <TecnicosPage />,
     path: '/tecnicos',
+  },
+  {
+    element: <PerfilTecnicoPage />,
+    path: '/tecnicos/:email',
   },
   {
     element: <Navigate replace to="/login" />,

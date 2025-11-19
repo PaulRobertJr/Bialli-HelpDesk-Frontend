@@ -1,14 +1,17 @@
 import { type ReactElement } from 'react'
+import { useNavigate } from 'react-router-dom'
 import DashboardLayout from '../components/DashboardLayout'
 import { tecnicos } from '../data/tecnicos'
 
 const TecnicosPage = (): ReactElement => {
+  const navigate = useNavigate()
+
   const handleNovo = () => {
     //chamar qual rota ? pendente
   }
 
   const handleEditar = (email: string) => {
-    // aguardando rota, utilizando dados mockados
+    navigate(`/tecnicos/${encodeURIComponent(email)}`)
   }
 
   return (
